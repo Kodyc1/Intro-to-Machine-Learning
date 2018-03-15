@@ -1,0 +1,17 @@
+Gradient boosting combines a set of weak learners using a gradient descent-like procedure where outcomes are weighed on previous instances
+of weak learners. These weak learners are typically regression trees, where their outputs are combined to correct the error residuals
+in the previous predictions. The gradient descent procedure minimizes loss when adding the trees together. 
+
+We will change parameters to put constraints on the trees as well as affect the impact each tree has. The learning rate determines the
+impact of each tree on the outcome, also known as shrinkage; the larger the learning rate, the faster each tree can reduce the loss of the objective function,
+but the less robust the model will be to different characteristics of each tree. n_estimators is the number of weak learners to use in the model
+and is typically good to have at a high value with the trade off of taking longer to compute and possible overfitting. For a large data set like X_test, having 
+a lot of trees that were able to have an impact on the outcome lead us to having solid 3000 estimators with a learning rate of 1. Max_depth
+limits the max depth of each tree, and allows us to fit more complex models as well as control over-fitting. The high max_depth value will help us fit the large
+data set that includes a multitude of features.
+
+Support vector machines work by finding the plane that gives the largest minimum distance from the closest data points to the margin separating the data.
+The C value represents how willing we are to misclassify data in order to get a more accurate model. Here we found that a higher C value fit the data well, implying
+a more destinct separation of points. We also picked a small gamma value to increase the radius of influence the support vectors had, using more points to determine a decision boundary 
+and therefore making it more linear since points near the boundary had less influence. The combination of a high C value and a low gamma value with good prediction accuracy 
+imply that our data is relatively separable, as we are able to make a stingier (high C value), more linear (low gamma) decision boundary that predicts well.
